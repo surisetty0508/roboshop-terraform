@@ -6,6 +6,9 @@ resource "aws_instance" "shipping" {
     Name = "shipping"
   }
 }
+output "shipping" {
+  value = aws_instance.shipping.public_ip
+}
 
 resource "aws_instance" "redis" {
   ami           = "ami-0b5a2b5b8f2be4ec2"
