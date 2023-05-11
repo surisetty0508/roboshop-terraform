@@ -17,7 +17,7 @@ variable "instance_type" {
 }
 
 variable "components" {
-  default = ["shipping","mongodb","catalogue"]
+  default = ["shipping","mongodb","catalogue","user","cart"]
 }
 
 resource "aws_instance" "instance" {
