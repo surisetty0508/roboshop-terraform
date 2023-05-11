@@ -71,6 +71,15 @@ resource "aws_instance" "instance" {
   }
 }
 
+resource "aws_route53_record" "records" {
+  for_each= var.components
+  zone_id = Z07468143H8ZATXPWON7O
+  name    = "${each.value["name"]}-dev.devops72.online"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.instance[each.value["name"]].private_ip]
+}
+
 #output "shipping" {
 #  value = aws_instance.shipping.public_ip
 #}
