@@ -16,6 +16,10 @@ variable "instance_type" {
   default ="t3.small"
 }
 
+variable "components" {
+  default = ["frontend","mongodb","catalogue"]
+}
+
 resource "aws_instance" "shipping" {
   ami                    = data.aws_ami.centos.image_id
   instance_type          = var.instance_type
